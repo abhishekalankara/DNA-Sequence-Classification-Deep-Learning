@@ -1,12 +1,45 @@
 # DNA Sequence Classification using Deep Learning
 
+A deep learning framework for multi-class DNA sequence classification using **CNN, DeepSEA, DeepBind, CNN-LSTM, and CNN-Random Forest** architectures. This project compares multiple deep learning models for genomic disease prediction, with the **CNN-LSTM hybrid model achieving the highest classification accuracy of 94%**.
+
+---
+
+## Table of Contents
+
+- Overview
+- Research Paper
+- Project Highlights
+- Dataset
+- Project Workflow
+- Deep Learning Models
+- Results
+- Performance Evaluation
+- Technologies Used
+- Repository Structure
+- Applications
+- Future Work
+- Author
+- Acknowledgements
+- License
+
 ---
 
 ## Overview
 
-DNA sequence classification is an important application of artificial intelligence in bioinformatics, enabling automated identification of disease-associated genomic patterns. This project presents a comparative study of multiple deep learning architectures for multi-class DNA sequence classification.
+DNA sequence classification is an important application of artificial intelligence in bioinformatics, enabling automated identification of disease-associated genomic patterns.
 
-The workflow includes DNA sequence preprocessing, one-hot encoding, model development, training, evaluation, and visualization. Five architectures were implemented and compared:
+This project presents a comparative study of multiple deep learning architectures for multi-class DNA sequence classification.
+
+The workflow includes:
+
+- DNA sequence preprocessing
+- One-Hot Encoding
+- Model development
+- Model training
+- Performance evaluation
+- Result visualization
+
+Five deep learning architectures were implemented and compared:
 
 - 1D CNN
 - DeepSEA
@@ -14,7 +47,7 @@ The workflow includes DNA sequence preprocessing, one-hot encoding, model develo
 - CNN-LSTM
 - CNN-Random Forest
 
-Among these, the CNN-LSTM hybrid model achieved the highest classification accuracy of **94%**, demonstrating its effectiveness in learning both local sequence patterns and long-range dependencies within genomic data.
+Among these models, the **CNN-LSTM hybrid model achieved the highest classification accuracy of 94%**, demonstrating its ability to capture both local sequence features and long-range dependencies in genomic data.
 
 ---
 
@@ -35,11 +68,17 @@ Presented at the **International Conference on Machine Learning and Data Enginee
 - One-Hot Encoding for DNA representation
 - Comparative analysis of five deep learning architectures
 - CNN-LSTM Hybrid Model
-- CNN-Random Forest Hybrid
+- CNN-Random Forest Hybrid Model
 - DeepSEA Architecture
 - DeepBind Architecture
-- Model evaluation using Accuracy, Precision, Recall, F1-Score, and Confusion Matrix
-- Performance comparison and visualization
+- Performance comparison across multiple models
+- Model evaluation using:
+  - Accuracy
+  - Precision
+  - Recall
+  - F1-Score
+  - Confusion Matrix
+- Training and validation visualization
 
 ---
 
@@ -110,19 +149,25 @@ Result Visualization
 
 A lightweight convolutional neural network that extracts local sequence features using Conv1D layers followed by pooling and dense layers.
 
+---
+
 ### 2. DeepSEA
 
 A deep convolutional architecture inspired by genomic sequence learning that captures hierarchical biological features.
+
+---
 
 ### 3. DeepBind
 
 A convolution-based model designed for sequence motif detection using multiple convolution filters.
 
+---
+
 ### 4. CNN-LSTM
 
 The best-performing model in this study.
 
-**Architecture**
+#### Architecture
 
 ```
 Input
@@ -140,40 +185,62 @@ Dense Layer
 Softmax
 ```
 
-**Advantages**
+#### Advantages
 
 - Learns local sequence features
 - Captures long-term dependencies
 - Improved classification performance
 - Highest overall accuracy
 
+---
+
 ### 5. CNN-Random Forest
 
-A hybrid approach where CNN extracts deep features and Random Forest performs the final classification, improving interpretability.
+A hybrid approach where CNN extracts deep features while Random Forest performs the final classification.
 
 ---
+
+# Results
 
 ## Model Performance
 
 | Model | Accuracy |
 |----------------------|----------|
-| CNN-LSTM | 94.0% |
-| CNN-Random Forest | 92.0% |
-| DeepBind | 88.3% |
-| DeepSEA | 85.2% |
-| 1D CNN | 85.0% |
+| CNN-LSTM | **94.0%** |
+| CNN-Random Forest | **92.0%** |
+| DeepBind | **88.3%** |
+| DeepSEA | **85.2%** |
+| 1D CNN | **85.0%** |
 
 ---
 
-## Model Training
+## Training Performance
 
 The CNN-LSTM model was trained using TensorFlow/Keras with the Adam optimizer. Training performance was monitored using training accuracy, validation accuracy, training loss, and validation loss across multiple epochs.
+
+![Training Results](results/training_results.png)
+
+---
+
+## Confusion Matrix
+
+The confusion matrix illustrates the classification performance of the CNN-LSTM model across all disease classes.
+
+![Confusion Matrix](results/confusion_matrix.png)
+
+---
+
+## Classification Metrics
+
+The following visualization presents Precision, Recall, F1-Score, and Support for each disease class.
+
+![Classification Metrics](results/classification_metrics.png)
 
 ---
 
 ## Performance Evaluation
 
-The trained models were evaluated using:
+The models were evaluated using:
 
 - Accuracy
 - Precision
@@ -183,7 +250,7 @@ The trained models were evaluated using:
 - Confusion Matrix
 - Classification Report
 
-The CNN-LSTM model achieved the highest overall performance with balanced precision, recall, and F1-score across all disease classes.
+The CNN-LSTM model demonstrated the best overall performance with balanced precision, recall, and F1-score across all disease classes.
 
 ---
 
@@ -217,31 +284,26 @@ The CNN-LSTM model achieved the highest overall performance with balanced precis
 
 ```
 DNA-Sequence-Classification-Deep-Learning/
-
-├── dataset/
-│   └── human_dataset.xlsx
-│
-├── notebooks/
-│   └── DNA_Classification.ipynb
-│
-├── models/
-│   ├── cnn_model.keras
-│   ├── cnn_lstm.keras
-│   └── random_forest.pkl
 │
 ├── results/
-│   ├── training_results.png
-│   ├── confusion_matrix.png
 │   ├── classification_metrics.png
-│   └── architecture.png
+│   ├── confusion_matrix.png
+│   └── training_results.png
 │
-├── paper/
-│   └── Convolution_Meets_the_Genome.pdf
+├── src/
+│   ├── preprocessing.py
+│   ├── cnn_model.py
+│   ├── deepsea_model.py
+│   ├── deepbind_model.py
+│   ├── cnn_lstm_model.py
+│   ├── cnn_random_forest.py
+│   ├── evaluation.py
+│   └── train.py
 │
-├── README.md
-├── requirements.txt
+├── .gitignore
 ├── LICENSE
-└── .gitignore
+├── README.md
+└── requirements.txt
 ```
 
 ---
@@ -258,7 +320,7 @@ DNA-Sequence-Classification-Deep-Learning/
 
 ---
 
-## Future Enhancements
+## Future Work
 
 - Transformer-based DNA models (DNABERT)
 - Explainable AI (XAI)
@@ -278,7 +340,6 @@ DNA-Sequence-Classification-Deep-Learning/
 - NumPy
 - Matplotlib
 - Seaborn
-- Kaggle DNA Sequence Dataset
 
 ---
 
@@ -286,26 +347,26 @@ DNA-Sequence-Classification-Deep-Learning/
 
 **Abhishek Alankara**
 
-B.Tech, Electronics and Communication Engineering
+B.Tech – Electronics and Communication Engineering
 
 SRM University-AP
 
-LinkedIn: https://www.linkedin.com/in/abhishekalankara/
+**LinkedIn:** https://www.linkedin.com/in/abhishekalankara/
 
-GitHub: https://github.com/abhishekalankara
+**GitHub:** https://github.com/abhishekalankara
 
 ---
 
 ## Acknowledgements
 
-I would like to express my sincere gratitude to the faculty members and mentors of the Department of Electronics and Communication Engineering, SRM University-AP, for their continuous guidance and support throughout this project. I also acknowledge the open-source community and the developers of TensorFlow, Keras, Scikit-learn, and other libraries that made this work possible.
+I would like to express my sincere gratitude to the faculty members and mentors of the Department of Electronics and Communication Engineering, SRM University-AP, for their continuous guidance and support throughout this project. I also acknowledge the open-source community and the developers of TensorFlow, Keras, Scikit-learn, NumPy, Pandas, Matplotlib, and Seaborn for providing the tools that made this work possible.
 
 ---
 
 ## License
 
-This project is released under the MIT License.
+This project is licensed under the **MIT License**.
 
 ---
 
-If you found this project useful, consider giving the repository a star.
+If you found this project useful, consider giving this repository a **Star**.
