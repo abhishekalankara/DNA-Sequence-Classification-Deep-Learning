@@ -290,9 +290,9 @@ B.Tech, Electronics and Communication Engineering
 
 SRM University-AP
 
-LinkedIn: https://www.linkedin.com/in/your-profile
+LinkedIn: https://www.linkedin.com/in/abhishekalankara/
 
-GitHub: https://github.com/your-username
+GitHub: https://github.com/abhishekalankara
 
 ---
 
